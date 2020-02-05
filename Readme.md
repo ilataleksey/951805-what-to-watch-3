@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алексей Илатовский](https://up.htmlacademy.ru/react/3/user/951805).
-* Наставник: `Неизвестно`.
+* Наставник: [Дмитрий Марков](https://up.htmlacademy.ru/react/3/user/83550).
 
 ---
 
