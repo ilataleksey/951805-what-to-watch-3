@@ -18,7 +18,7 @@ const Main = (props) => {
             </article>
           </React.Fragment>
         );
-      })
+      });
   };
 
   return (
