@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
 const FILM = {
-  NAME: `The Grand Budapest Hotel`,
-  GENER: `Drama`,
-  YEAR: 2014,
+  genre: `Drama`,
+  name: `The Grand Budapest Hotel`,
+  year: 2014,
 };
 
 ReactDOM.render(
-    <App name={FILM.NAME} gener={FILM.GENER} year={FILM.YEAR}/>,
+    <App genre={FILM.genre} name={FILM.name} year={FILM.year}/>,
     document.querySelector(`#root`)
 );
