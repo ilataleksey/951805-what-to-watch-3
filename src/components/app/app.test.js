@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "../app/app.jsx";
+import App from "./app.jsx";
 
 const names = [`film1, film2, film3`];
 
