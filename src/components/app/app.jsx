@@ -4,8 +4,12 @@ import Main from "../main/main.jsx";
 
 const App = (props) => {
   const {names} = props;
+  const titleClickHandler = () => {};
   return (
-    <Main names={names}/>
+    <Main
+      names={names}
+      onTitleClick={titleClickHandler}
+    />
   );
 };
 
