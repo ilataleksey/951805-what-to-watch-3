@@ -7,7 +7,7 @@ const Main = (props) => {
     return filmNames
       .map((name) => {
         return (
-          <React.Fragment key={Math.random()}>
+          <React.Fragment key={name}>
             <article className="small-movie-card catalog__movies-card">
               <div className="small-movie-card__image">
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
@@ -143,7 +143,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string.isRequired)
+  names: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default Main;

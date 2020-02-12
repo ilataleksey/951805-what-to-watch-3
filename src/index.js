@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
 
-const NAMES = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
+const names = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
 
 ReactDOM.render(
-    <App names={NAMES}/>,
+    <App names={names}/>,
     document.querySelector(`#root`)
 );
