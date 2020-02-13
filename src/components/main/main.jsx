@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Main = (props) => {
-  const {names} = props;
+  const {names, onTitleClick} = props;
   const createCatalogMarkup = (filmNames) => {
     return filmNames
       .map((name) => {
         return (
-          <React.Fragment key={Math.random()}>
+          <React.Fragment key={name}>
             <article className="small-movie-card catalog__movies-card">
               <div className="small-movie-card__image">
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
@@ -53,7 +53,12 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">Grand Budapest</h2>
+              <h2
+                onClick={onTitleClick}
+                className="movie-card__title"
+              >
+                Grand Budapest
+              </h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">Dramas</span>
                 <span className="movie-card__year">2014</span>
@@ -143,7 +148,8 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string.isRequired)
+  names: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default Main;
