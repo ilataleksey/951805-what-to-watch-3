@@ -8,6 +8,7 @@ it(`Render Main`, () => {
   const tree = renderer
     .create(<Main
       names={names}
+      onTitleClick={() => {}}
     />)
     .toJSON();
 
