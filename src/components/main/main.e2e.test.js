@@ -2,8 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main.jsx";
-
-const names = [`film1, film2, film3`];
+import films from "./main.test.mocks.js";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -14,7 +13,7 @@ it(`Should title be pressed`, () => {
 
   const main = shallow(
       <Main
-        names={names}
+        films={films}
         onTitleClick={onTitleClick}
       />
   );

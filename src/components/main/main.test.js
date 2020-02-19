@@ -1,13 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Main from "./main.jsx";
-
-const names = [`film1, film2, film3`];
+import films from "./main.test.mocks.js";
 
 it(`Render Main`, () => {
   const tree = renderer
     .create(<Main
-      names={names}
+      films={films}
       onTitleClick={() => {}}
     />)
     .toJSON();
