@@ -1,4 +1,4 @@
-export const films = [
+export default [
   {
     name: `Лед 2`,
     src: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
