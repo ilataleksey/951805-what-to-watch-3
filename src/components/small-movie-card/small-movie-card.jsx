@@ -20,10 +20,10 @@ const SmallMovieCard = (props) => {
 };
 
 SmallMovieCard.propTypes = {
-  film: PropTypes.arrayOf(PropTypes.shape({
+  film: PropTypes.shape({
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
-  })).isRequired,
+  }).isRequired,
   onCardHover: PropTypes.func.isRequired,
 };
 
