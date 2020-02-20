@@ -1,25 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MoviesList from "../movies-list/movies-list.jsx";
 
 const Main = (props) => {
-  const {names, onTitleClick} = props;
-  const createCatalogMarkup = (filmNames) => {
-    return filmNames
-      .map((name) => {
-        return (
-          <React.Fragment key={name}>
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{name}</a>
-              </h3>
-            </article>
-          </React.Fragment>
-        );
-      });
-  };
+  const {films, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -120,9 +104,9 @@ const Main = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {createCatalogMarkup(names)};
-          </div>
+          <MoviesList
+            films={films}
+          />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -148,7 +132,7 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string).isRequired,
+  films: PropTypes.array.isRequired,
   onTitleClick: PropTypes.func.isRequired,
 };
 
