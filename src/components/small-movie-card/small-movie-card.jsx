@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import VideoPlayer from "../vidoe-player/video-player.jsx";
 
 const SmallMovieCard = (props) => {
   const {film, onCardHover} = props;
   return (
     <article
-      key={film.name}
       className="small-movie-card catalog__movies-card"
       onMouseOver={onCardHover}
     >
       <div className="small-movie-card__image">
-        <img src={film.src} alt={film.name} width="280" height="175" />
+        <VideoPlayer
+          poster={film.poster}
+          preview={film.preview}
+        />
       </div>
       <h3 className="small-movie-card__title">
         <a className="small-movie-card__link" href="movie-page.html">{film.name}</a>
@@ -22,7 +25,8 @@ const SmallMovieCard = (props) => {
 SmallMovieCard.propTypes = {
   film: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
   }).isRequired,
   onCardHover: PropTypes.func.isRequired,
 };
