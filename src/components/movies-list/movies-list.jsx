@@ -12,7 +12,6 @@ const MoviesList = (props) => {
           <SmallMovieCard
             key={film.name}
             film={film}
-            onCardHover={() => {}}
           />
         );
       })}

@@ -1,32 +1,76 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
 
 export default class VideoPlayer extends PureComponent {
   constructor(props) {
     super(props);
 
+    this._videoRef = createRef();
+
     this.state = {
-      isPlaying: false,
+      progress: 0,
+      isPlaying: props.isPlaying,
     };
   }
 
-  render() {
+  componentDidMount() {
     const {poster, preview} = this.props;
+    const video = this._videoRef.current;
 
+    video.poster = poster;
+    video.src = preview;
+    video.width = `280`;
+    video.height = `175`;
+    video.muted = true;
+
+    video.onplay = () => {
+      this.setState({
+        isPlaying: true,
+      });
+    };
+
+    video.onpause = () => this.setState({
+      isPlaying: false,
+    });
+
+    video.ontimeupdate = () => this.setState({
+      progress: 0,
+    });
+  }
+
+  componentWillUnmount() {
+    const video = this._videoRef.current;
+
+    video.oncanplaythrough = null;
+    video.onplay = null;
+    video.onpause = null;
+    video.ontimeupdate = null;
+    video.src = ``;
+  }
+
+  render() {
     return (
       <video
-        width="280"
-        height="175"
-        poster={poster}
-        muted={true}
-        src={preview}
+        ref={this._videoRef}
       />
     );
+  }
+
+  componentDidUpdate() {
+    const video = this._videoRef.current;
+    let timeoutID = null;
+
+    if (this.props.isPlaying) {
+      timeoutID = setTimeout(() => video.play(), 1000);
+    } else {
+      clearTimeout(timeoutID);
+      video.pause();
+    }
   }
 }
 
 VideoPlayer.propTypes = {
-  // isPlaying: PropTypes.bool.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
   poster: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
 };
