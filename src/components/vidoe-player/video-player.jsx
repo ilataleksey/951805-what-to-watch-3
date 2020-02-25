@@ -1,7 +1,7 @@
 import React, {PureComponent, createRef} from "react";
 import PropTypes from "prop-types";
 
-export default class VideoPlayer extends PureComponent {
+class VideoPlayer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -23,16 +23,6 @@ export default class VideoPlayer extends PureComponent {
     video.height = `175`;
     video.muted = true;
 
-    video.onplay = () => {
-      this.setState({
-        isPlaying: true,
-      });
-    };
-
-    video.onpause = () => this.setState({
-      isPlaying: false,
-    });
-
     video.ontimeupdate = () => this.setState({
       progress: 0,
     });
@@ -41,10 +31,8 @@ export default class VideoPlayer extends PureComponent {
   componentWillUnmount() {
     const video = this._videoRef.current;
 
-    video.oncanplaythrough = null;
-    video.onplay = null;
-    video.onpause = null;
     video.ontimeupdate = null;
+    video.poster = ``;
     video.src = ``;
   }
 
@@ -58,13 +46,12 @@ export default class VideoPlayer extends PureComponent {
 
   componentDidUpdate() {
     const video = this._videoRef.current;
-    let timeoutID = null;
 
     if (this.props.isPlaying) {
-      timeoutID = setTimeout(() => video.play(), 1000);
+      video.play();
     } else {
-      clearTimeout(timeoutID);
       video.pause();
+      video.src = this.props.preview;
     }
   }
 }
@@ -74,3 +61,5 @@ VideoPlayer.propTypes = {
   poster: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
 };
+
+export default VideoPlayer;

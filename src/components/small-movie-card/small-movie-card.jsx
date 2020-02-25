@@ -2,7 +2,7 @@ import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import VideoPlayer from "../vidoe-player/video-player.jsx";
 
-export default class SmallMovieCard extends PureComponent {
+class SmallMovieCard extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -14,14 +14,23 @@ export default class SmallMovieCard extends PureComponent {
   render() {
     const {film} = this.props;
 
+    let timerId = null;
+    const onCardHover = () => {
+      this.setState({isPlaying: true});
+    };
+    const onCardLeave = () => {
+      this.setState({isPlaying: false});
+    };
+
     return (
       <article
         className="small-movie-card catalog__movies-card"
         onMouseOver={() => {
-          this.setState({isPlaying: true});
+          timerId = setTimeout(() => onCardHover(), 1000);
         }}
         onMouseLeave={() => {
-          this.setState({isPlaying: false});
+          clearTimeout(timerId);
+          onCardLeave();
         }}
       >
         <div className="small-movie-card__image">
@@ -46,3 +55,5 @@ SmallMovieCard.propTypes = {
     preview: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+export default SmallMovieCard;
