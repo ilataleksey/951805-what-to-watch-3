@@ -4,11 +4,13 @@ import MoviesList from "./movies-list.jsx";
 import films from "./movies-list.test.mocks.js";
 
 it(`Render SmallMoviesCard`, () => {
-  const tree = renderer
-    .create(<MoviesList
-      films={films}
-    />)
-    .toJSON();
+  const tree = renderer.create(<MoviesList
+    films={films}
+  />, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

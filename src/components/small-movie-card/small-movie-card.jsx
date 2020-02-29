@@ -1,6 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
-import VideoPlayer from "../vidoe-player/video-player.jsx";
+import VideoPlayer from "../video-player/video-player.jsx";
 
 class SmallMovieCard extends PureComponent {
   constructor(props) {
@@ -9,28 +9,32 @@ class SmallMovieCard extends PureComponent {
     this.state = {
       isPlaying: false,
     };
+
+    this.onCardHover = this.onCardHover.bind(this);
+  }
+
+  onCardHover() {
+    this.setState({isPlaying: true});
+  }
+
+  onCardLeave() {
+    this.setState({isPlaying: false});
   }
 
   render() {
     const {film} = this.props;
 
     let timerId = null;
-    const onCardHover = () => {
-      this.setState({isPlaying: true});
-    };
-    const onCardLeave = () => {
-      this.setState({isPlaying: false});
-    };
 
     return (
       <article
         className="small-movie-card catalog__movies-card"
         onMouseOver={() => {
-          timerId = setTimeout(() => onCardHover(), 1000);
+          timerId = setTimeout(() => this.onCardHover(), 1000);
         }}
         onMouseLeave={() => {
           clearTimeout(timerId);
-          onCardLeave();
+          this.onCardLeave();
         }}
       >
         <div className="small-movie-card__image">

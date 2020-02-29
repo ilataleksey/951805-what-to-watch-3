@@ -4,12 +4,14 @@ import Main from "./main.jsx";
 import films from "./main.test.mocks.js";
 
 it(`Render Main`, () => {
-  const tree = renderer
-    .create(<Main
-      films={films}
-      onTitleClick={() => {}}
-    />)
-    .toJSON();
+  const tree = renderer.create(<Main
+    films={films}
+    onTitleClick={() => {}}
+  />, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

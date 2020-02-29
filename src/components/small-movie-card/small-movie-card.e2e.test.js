@@ -10,17 +10,21 @@ Enzyme.configure({
 
 it(`Should small movie card be hovered`, () => {
   const onCardHover = jest.fn();
+  const onCardLeave = jest.fn();
 
   const smallMovieCard = shallow(
       <SmallMovieCard
         film={film}
-        onCardHover={onCardHover}
+        onCardHover={()=>{}}
+        onCardLeave={()=>{}}
       />
   );
 
   const card = smallMovieCard.find(`article.small-movie-card`);
 
   card.props().onMouseOver();
-
   expect(onCardHover.mock.calls.length).toBe(1);
+
+  card.props().onMouseLeave();
+  expect(onCardLeave.mock.calls.length).toBe(1);
 });

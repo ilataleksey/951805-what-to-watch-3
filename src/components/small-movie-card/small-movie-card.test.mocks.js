@@ -1,4 +1,5 @@
 export default {
   name: `Наименование фильма`,
-  src: `img/film-poster.jpg`,
+  poster: `img/film-poster.jpg`,
+  preview: `video/film.mp4`,
 };
