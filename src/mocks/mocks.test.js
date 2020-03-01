@@ -1,4 +1,4 @@
-export default [
+export const films = [
   {
     name: `Наименование фильма-1`,
     poster: `img/film-poster.jpg`,
@@ -30,3 +30,10 @@ export default [
     preview: `video/film.mp4`,
   },
 ];
+
+export const film = {
+  name: `Наименование фильма`,
+  poster: `img/film-poster.jpg`,
+  preview: `video/film.mp4`,
+};
+
