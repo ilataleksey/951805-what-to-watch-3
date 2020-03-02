@@ -13,6 +13,7 @@ class SmallMovieCard extends PureComponent {
     this.timerId = null;
 
     this.onCardHover = this.onCardHover.bind(this);
+    this.onCardLeave = this.onCardLeave.bind(this);
   }
 
   onCardHover() {
@@ -21,7 +22,9 @@ class SmallMovieCard extends PureComponent {
 
   onCardLeave() {
     clearTimeout(this.timerId);
-    this.setState({isPlaying: false});
+    return (
+      this.setState({isPlaying: false})
+    );
   }
 
   render() {
@@ -30,12 +33,8 @@ class SmallMovieCard extends PureComponent {
     return (
       <article
         className="small-movie-card catalog__movies-card"
-        onMouseOver={() => {
-          this.onCardHover();
-        }}
-        onMouseLeave={() => {
-          this.onCardLeave();
-        }}
+        onMouseOver={this.onCardHover}
+        onMouseLeave={this.onCardLeave}
       >
         <div className="small-movie-card__image">
           <VideoPlayer
