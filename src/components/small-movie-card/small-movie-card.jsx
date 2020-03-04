@@ -22,9 +22,7 @@ class SmallMovieCard extends PureComponent {
 
   onCardLeave() {
     clearTimeout(this.timerId);
-    return (
-      this.setState({isPlaying: false})
-    );
+    this.setState({isPlaying: false});
   }
 
   render() {
