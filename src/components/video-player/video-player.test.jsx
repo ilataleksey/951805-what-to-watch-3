@@ -1,11 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import SmallMovieCard from "./small-movie-card.jsx";
+import VideoPlayer from "./video-player.jsx";
 import {film} from "../../mocks/mocks-test.js";
 
-it(`Render SmallMoviesCard`, () => {
-  const tree = renderer.create(<SmallMovieCard
-    film={film}
+it(`Render VideoPlayer`, () => {
+  const tree = renderer.create(<VideoPlayer
+    isPlaying={false}
+    poster={film.poster}
+    preview={film.preview}
   />, {
     createNodeMock: () => {
       return {};
