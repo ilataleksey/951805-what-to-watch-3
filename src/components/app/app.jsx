@@ -17,6 +17,7 @@ class App extends PureComponent {
         films={films}
         filteredGenre={filteredGenre}
         onGenreChange={onGenreChange}
+        onTitleClick={() => {}}
       />
     );
   }
@@ -26,6 +27,7 @@ App.propTypes = {
   films: PropTypes.array.isRequired,
   filteredGenre: PropTypes.string.isRequired,
   onGenreChange: PropTypes.func.isRequired,
+  onTitleClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
