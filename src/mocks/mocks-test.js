@@ -43,3 +43,5 @@ export const film = {
   preview: `video/film.mp4`,
   genre: `genre-1`
 };
+
+export const filteredGenre = `genre-2`;
