@@ -1,7 +1,7 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ActionCreator} from "../../reducer.js";
+import {ActionCreator, genresList} from "../../reducer.js";
 import Main from "../main/main.jsx";
 
 class App extends PureComponent {
@@ -16,6 +16,7 @@ class App extends PureComponent {
       <Main
         films={films}
         filteredGenre={filteredGenre}
+        genresList={genresList}
         onGenreChange={onGenreChange}
         onTitleClick={() => {}}
       />
@@ -27,7 +28,6 @@ App.propTypes = {
   films: PropTypes.array.isRequired,
   filteredGenre: PropTypes.string.isRequired,
   onGenreChange: PropTypes.func.isRequired,
-  onTitleClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

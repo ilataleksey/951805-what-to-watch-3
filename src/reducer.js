@@ -3,6 +3,13 @@ import films from "./mocks/films.js";
 
 const ALL_GENRES = `All genres`;
 
+const genresList = new Set();
+films.map((film) => {
+  return (
+    genresList.add(film.genre)
+  );
+});
+
 const initialState = {
   films,
   filteredGenre: ALL_GENRES,
@@ -50,4 +57,4 @@ const reducer = (state = initialState, action) => {
   return state;
 };
 
-export {reducer, ActionCreator, ActionType, ALL_GENRES};
+export {reducer, ActionCreator, ActionType, genresList, ALL_GENRES};

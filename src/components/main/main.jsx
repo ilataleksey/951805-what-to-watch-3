@@ -4,7 +4,7 @@ import MoviesList from "../movies-list/movies-list.jsx";
 import GenresList from "../genres-list/genres-list.jsx";
 
 const Main = (props) => {
-  const {films, filteredGenre, onGenreChange, onTitleClick} = props;
+  const {films, filteredGenre, genresList, onGenreChange, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -74,6 +74,7 @@ const Main = (props) => {
 
           <GenresList
             filteredGenre={filteredGenre}
+            genresList={genresList}
             onGenreChange={onGenreChange}
           />
 
@@ -107,6 +108,7 @@ const Main = (props) => {
 Main.propTypes = {
   films: PropTypes.array.isRequired,
   filteredGenre: PropTypes.string.isRequired,
+  genresList: PropTypes.objectOf(PropTypes.string),
   onGenreChange: PropTypes.func.isRequired,
   onTitleClick: PropTypes.func.isRequired,
 };

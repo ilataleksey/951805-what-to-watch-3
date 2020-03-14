@@ -1,16 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import films from "../../mocks/films.js";
 import {ALL_GENRES} from "../../reducer.js";
 
 const GenresList = (props) => {
-  const {filteredGenre, onGenreChange} = props;
-  const genres = new Set();
-  films.map((film) => {
-    return (
-      genres.add(film.genre)
-    );
-  });
+  const {filteredGenre, genresList, onGenreChange} = props;
 
   return (
     <ul className="catalog__genres-list">
@@ -23,7 +16,7 @@ const GenresList = (props) => {
           }}
         >{ALL_GENRES}</a>
       </li>
-      {Array.from(genres).map((genre, i) => {
+      {Array.from(genresList).map((genre, i) => {
         return (
           <li key={`${genre}-${i}`} className={`catalog__genres-item ${filteredGenre === genre ? `catalog__genres-item--active` : ``}`}>
             <a href="#"
@@ -42,6 +35,7 @@ const GenresList = (props) => {
 
 GenresList.propTypes = {
   filteredGenre: PropTypes.string.isRequired,
+  genresList: PropTypes.objectOf(PropTypes.string),
   onGenreChange: PropTypes.func.isRequired,
 };
 
