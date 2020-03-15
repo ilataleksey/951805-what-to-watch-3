@@ -20,7 +20,6 @@ it(`Render App`, () => {
           films={store.getState().films}
           filteredGenre={store.getState().filteredGenre}
           onGenreChange={() => {}}
-          onTitleClick={() => {}}
         />
       </Provider>, {
         createNodeMock: () => {

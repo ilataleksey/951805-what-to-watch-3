@@ -13,7 +13,6 @@ const App = (props) => {
       filteredGenre={filteredGenre}
       genresList={genresList}
       onGenreChange={onGenreChange}
-      onTitleClick={() => {}}
     />
   );
 };

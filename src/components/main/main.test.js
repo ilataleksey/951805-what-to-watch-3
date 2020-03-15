@@ -9,7 +9,6 @@ it(`Render Main`, () => {
     filteredGenre={filteredGenre}
     genresList={genresList}
     onGenreChange={() => {}}
-    onTitleClick={() => {}}
   />, {
     createNodeMock: () => {
       return {};
