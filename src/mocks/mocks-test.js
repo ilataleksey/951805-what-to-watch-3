@@ -44,6 +44,6 @@ export const film = {
   genre: `genre-1`
 };
 
-export const filteredGenre = `genre-2`;
+export const activeGenre = `genre-2`;
 
-export const genresList = new Set([`genre-1`, `genre-2`, `genre-3`, `genre-4`]);
+export const genresList = [`genre-1`, `genre-2`, `genre-3`, `genre-4`];

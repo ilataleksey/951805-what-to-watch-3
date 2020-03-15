@@ -1,18 +1,15 @@
 import {extend} from "./utils.js";
 import films from "./mocks/films.js";
+import {ALL_GENRES} from "./const.js";
 
-const ALL_GENRES = `All genres`;
+const genresList = Array.from(
+    new Set(films.map((film) => film.genre))
+);
 
-const genresList = new Set();
-films.map((film) => {
-  return (
-    genresList.add(film.genre)
-  );
-});
 
 const initialState = {
   films,
-  filteredGenre: ALL_GENRES,
+  activeGenre: ALL_GENRES,
 };
 
 const ActionType = {
@@ -34,10 +31,10 @@ const ActionCreator = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.FILTER_UPDATE:
-      const newFilteredGenre = action.genre ? action.genre : state.filteredGenre;
+      const newActiveGenre = action.genre ? action.genre : state.activeGenre;
 
       return extend(state, {
-        filteredGenre: newFilteredGenre,
+        activeGenre: newActiveGenre,
       });
 
     case ActionType.GET_FILTERED_FILMS:
@@ -45,7 +42,7 @@ const reducer = (state = initialState, action) => {
         return film.genre === state.filteredGenre;
       });
 
-      if (state.filteredGenre === initialState.filteredGenre) {
+      if (state.activeGenre === initialState.activeGenre) {
         return extend({}, initialState);
       }
 

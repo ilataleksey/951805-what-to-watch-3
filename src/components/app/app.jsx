@@ -1,38 +1,31 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {ActionCreator, genresList} from "../../reducer.js";
 import Main from "../main/main.jsx";
 
-class App extends PureComponent {
-  render() {
-    const {
-      films,
-      filteredGenre,
-      onGenreChange,
-    } = this.props;
+const App = (props) => {
+  const {films, activeGenre, onGenreChange} = props;
 
-    return (
-      <Main
-        films={films}
-        filteredGenre={filteredGenre}
-        genresList={genresList}
-        onGenreChange={onGenreChange}
-        onTitleClick={() => {}}
-      />
-    );
-  }
-}
+  return (
+    <Main
+      films={films}
+      activeGenre={activeGenre}
+      genresList={genresList}
+      onGenreChange={onGenreChange}
+    />
+  );
+};
 
 App.propTypes = {
   films: PropTypes.array.isRequired,
-  filteredGenre: PropTypes.string.isRequired,
+  activeGenre: PropTypes.string.isRequired,
   onGenreChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: state.films,
-  filteredGenre: state.filteredGenre,
+  activeGenre: state.activeGenre,
 });
 
 const mapDispatchToProps = (dispatch) => ({
