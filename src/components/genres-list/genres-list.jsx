@@ -18,7 +18,7 @@ const GenresList = (props) => {
           onClick={onGenreClick}
         >{ALL_GENRES}</a>
       </li>
-      {Array.from(genresList).map((genre, i) => {
+      {genresList.map((genre, i) => {
         return (
           <li key={`${genre}-${i}`} className={`catalog__genres-item ${filteredGenre === genre ? `catalog__genres-item--active` : ``}`}>
             <a href="#"
@@ -37,7 +37,7 @@ const GenresList = (props) => {
 
 GenresList.propTypes = {
   filteredGenre: PropTypes.string.isRequired,
-  genresList: PropTypes.objectOf(PropTypes.string),
+  genresList: PropTypes.arrayOf(PropTypes.string),
   onGenreChange: PropTypes.func.isRequired,
 };
 

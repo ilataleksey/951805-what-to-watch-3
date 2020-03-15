@@ -105,7 +105,7 @@ const Main = (props) => {
 Main.propTypes = {
   films: PropTypes.array.isRequired,
   filteredGenre: PropTypes.string.isRequired,
-  genresList: PropTypes.objectOf(PropTypes.string),
+  genresList: PropTypes.arrayOf(PropTypes.string),
   onGenreChange: PropTypes.func.isRequired,
 };
 

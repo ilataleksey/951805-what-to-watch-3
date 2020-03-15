@@ -2,12 +2,10 @@ import {extend} from "./utils.js";
 import films from "./mocks/films.js";
 import {ALL_GENRES} from "./const.js";
 
-const genresList = new Set();
-films.map((film) => {
-  return (
-    genresList.add(film.genre)
-  );
-});
+const genresList = Array.from(
+    new Set(films.map((film) => film.genre))
+);
+
 
 const initialState = {
   films,
