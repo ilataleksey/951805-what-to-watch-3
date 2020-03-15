@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import GenresList from "./genres-list.jsx";
-import {films, filteredGenre, genresList} from "../../mocks/mocks-test.js";
+import {films, activeGenre, genresList} from "../../mocks/mocks-test.js";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -19,7 +19,7 @@ it(`Click on genre name calls onGenreChange callback`, () => {
   const genreListComponent = shallow(
       <GenresList
         films={films}
-        filteredGenre={filteredGenre}
+        activeGenre={activeGenre}
         genresList={genresList}
         onGenreChange={onGenreChange}
       />

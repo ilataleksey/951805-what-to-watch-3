@@ -5,12 +5,12 @@ import {ActionCreator, genresList} from "../../reducer.js";
 import Main from "../main/main.jsx";
 
 const App = (props) => {
-  const {films, filteredGenre, onGenreChange} = props;
+  const {films, activeGenre, onGenreChange} = props;
 
   return (
     <Main
       films={films}
-      filteredGenre={filteredGenre}
+      activeGenre={activeGenre}
       genresList={genresList}
       onGenreChange={onGenreChange}
     />
@@ -19,13 +19,13 @@ const App = (props) => {
 
 App.propTypes = {
   films: PropTypes.array.isRequired,
-  filteredGenre: PropTypes.string.isRequired,
+  activeGenre: PropTypes.string.isRequired,
   onGenreChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   films: state.films,
-  filteredGenre: state.filteredGenre,
+  activeGenre: state.activeGenre,
 });
 
 const mapDispatchToProps = (dispatch) => ({
