@@ -1,7 +1,6 @@
 import {extend} from "./utils.js";
 import films from "./mocks/films.js";
-
-const ALL_GENRES = `All genres`;
+import {ALL_GENRES} from "./const.js";
 
 const genresList = new Set();
 films.map((film) => {

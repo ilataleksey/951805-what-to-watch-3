@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {ALL_GENRES} from "../../reducer.js";
+import {ALL_GENRES} from "../../const.js";
 
 const GenresList = (props) => {
   const {filteredGenre, genresList, onGenreChange} = props;
